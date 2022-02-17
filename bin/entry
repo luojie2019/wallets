@@ -2,7 +2,7 @@
 set -e
 
 bundle exec rake db:migrate
-bundle exec rake sneakers:run
+# bundle exec rake sneakers:run
 # bundle exec sidekiq -C config/sidekiq.yml -d
 
 exec "$@"
