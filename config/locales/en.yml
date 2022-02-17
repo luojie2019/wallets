@@ -1,0 +1,79 @@
+en:
+  error:
+    unkown: "Sorry, Server encountered a little trouble, the operation just failed."
+    not_null: "%{name} Can't be empty"
+    not_exist: "%{name} Non-existent"
+    is_exist: "%{name} Existing"
+    invalid_request: "Invalid request"
+    params:
+      not_validate: "%{name} parameter format not correct"
+      not_null: "%{name} Parameters cannot be null"
+    synchronization:
+      unkown: "Data synchronization anomaly"
+    account:
+      not_exist: "Account does not exist"
+      auth_not_validate: "Please enter your correct password"
+      is_exist: "Account already exists"
+      not_login: "Account not logged in"
+      name_not_null: "Please enter your nickname"
+      reg_type_error: "Incorrect regist type"
+      long_distance_landing: "The account has been logged in on another device, please confirm"
+    manager:
+      not_exist: "Manager does not exist"
+      auth_not_validate: "Please enter your correct password"
+      is_exist: "Manager already exists"
+      not_login: "Manager not logged in"
+      phone_not_null: "Mobile phone number cannot be empty"
+      password_not_null: "Password cannot be empty"
+    recommend_food_package:
+      create_fail: "Recommendation Package Creation Failed, reason: %{reason}"
+      not_exist: "Recommended Package no longer exist" 
+    feedback:
+      email_not_null: "Please input your email_not_null"
+      content_not_null: "Please enter your problem"
+    email: 
+      not_null: "Please input your emai"
+      not_validate: "The mailbox format is wrong, please try again"
+      is_taken: "Account already exists"
+      send_reset_code_limit: "Reset passwords too frequently. Please try again in an hour."
+      send_reset_code_fail: "Failed to send reset authentication code"
+    code: 
+      not_null: "Verification code"
+      not_validate: "Verification code error"
+      is_expired: "Verification code expired"
+    password:
+      not_null: "Please enter your password"
+      min_length: "The password format is wrong，please enter a combination of 6~16 digits or letters"
+      max_length: "The password format is wrong，please enter a combination of 6~16 digits or letters"
+    food:
+      not_exist: "Food does not exist" 
+      query_error: "food query exception, reason: %{reason}" 
+    food_plan:
+      push_error: "Real-time upload food plan exception, reason: %{reason}" 
+    food_package:
+      not_exist: "Package does not exist"
+      name_not_null: "Package Name cannot be empty"
+      foods_not_null: "Food Name cannot be empty"
+      delete_not_null: "Please select the package that needs to be deleted."
+      push_error: "Real-time upload food package exception, reason: %{reason}"
+    custom_food:
+      name_not_null: "Name cannot be empty"
+      weight_not_null: "Weight cannot be empty"
+      weight_uom_not_null: "Weight Uom cannot be empty"
+      energy_not_null: "Energy cannot be empty"
+      push_error: "Real-time upload custom food exception, reason: %{reason}"
+    sale_data:
+      cannot_updated: "No permission to update data"
+      cannot_deleted: "No permission to delete data"
+      cannot_created_existed: "existing data is not allowed to be encountered"
+  account:
+    send_email:
+      reset_password_code:
+          subject: "Foodiet password verification code"
+          title: "Dear Foodiet User"
+          content: "It's your password verification code, please check. Foodiet password verification code "
+          tips: "This email is sent automatically by the system. Please do not reply."
+          
+      
+
+

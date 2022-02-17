@@ -1,0 +1,20 @@
+default: &default
+  adapter:  postgresql
+  host:     <%= ENV.fetch('DATABASE_HOST') { 'localhost' } %>
+  port:     <%= ENV.fetch('DATABASE_PORT') { 5432 } %>
+  encoding: unicode
+  database: <%= ENV.fetch('DATABASE_NAME') { 'wallets' } %>
+  pool:     <%= ENV.fetch('DATABASE_POOL') { 5 } %>
+  username: <%= ENV.fetch('DATABASE_USERNAME') { 'z' } %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') { '123456' } %>
+  template: template0
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+  database: <%= ENV.fetch('DATABASE_NAME') { 'wallets_prod' } %>

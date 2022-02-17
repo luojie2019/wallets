@@ -1,0 +1,18 @@
+zh_cn:
+  activerecord:
+    errors:
+      models:
+        recharge_trade:
+          attributes:
+            total_amount:
+              not_a_number: "金额非数字格式"
+  error:
+    message: "%{message}"
+    unkown: "Sorry,服务器遇到小麻烦,刚才的操作没成功"
+    not_null: "%{name}不能为空"
+    not_exist: "%{name}不存在"
+    is_exist: "%{name}已存在"
+    invalid_request: "无效的请求"
+    not_access: "无权操作"
+    pay_type:
+      not_exist: "支付类型不存在"
