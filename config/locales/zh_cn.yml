@@ -16,3 +16,8 @@ zh_cn:
     not_access: "无权操作"
     pay_type:
       not_exist: "支付类型不存在"
+    user:
+      exist: "账户名已存在"
+      not_exist: "账户名不存在"
+      auth_not_validate: "账户名与密码不匹配，请重新输入"
+      not_login: "账户未登录"

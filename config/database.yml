@@ -17,4 +17,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV.fetch('DATABASE_NAME') { 'wallets_prod' } %>
+  database: <%= ENV.fetch('DATABASE_NAME') { 'wallets' } %>
