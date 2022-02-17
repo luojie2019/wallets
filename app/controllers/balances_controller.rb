@@ -25,7 +25,7 @@ class BalancesController < ApplicationController
       # 校验amount的有效性：最小值最大值；
       # 校验备注的有效长度：
       response[:trade_no] = RechargeTrade.build_recharge_trade(@current_user.userid, params[:amount], params[:pay_type], params[:remark])
-      response[:pay_url] = "http://192.168.2.192:3000/payments/pay_trade/#{response[:trade_no]}?authToken=b57N5qLpRZmnV5zQYd9BwHZS"
+      response[:pay_url] = "#{ENV['PAY_HOST']}payments/pay_trade/#{response[:trade_no]}?authToken=#{@current_user.token}"
     end
     build_json_response(excute_block) 
   end

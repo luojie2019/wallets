@@ -27,8 +27,8 @@ class PaymentSetting < ApplicationRecord
       :total_fee => trade.total_amount.to_s,
       :subject => 'Wallets充值-订单支付',
       :body => '支付金额' + trade.total_amount.to_s,
-      :notify_url => "http://yhsd_doma.com/payment/callback/#{pay_type}/#{pay_type}/notify",
-      :return_url => "https://www.baidu.com/",
+      :notify_url => "#{ENV['PAY_HOST']}payment/notification/#{pay_type}/#{trade.trade_no}",
+      :return_url => "#{ENV['PAY_HOST']}payment/notification/#{pay_type}/#{trade.trade_no}",
       :extra_common_param => 'extra_common_param',
       :created_at => trade.created_at.strftime('%Y%m%d%H%M%S'),
       :expired_at => (trade.created_at + 86400).strftime('%Y%m%d%H%M%S'),
@@ -36,6 +36,5 @@ class PaymentSetting < ApplicationRecord
       :is_bank => false
     }
   end
-  
+
 end	
- 
