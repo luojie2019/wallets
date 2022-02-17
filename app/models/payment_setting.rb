@@ -36,7 +36,6 @@ class PaymentSetting < ApplicationRecord
       :is_bank => false
     }
   end
-  # https://www.baidu.com/?body=%E6%94%AF%E4%BB%98%E9%87%91%E9%A2%9D0.01&buyer_email=185****0248&buyer_id=2088012892381668&exterface=create_direct_pay_by_user&extra_common_param=extra_common_param&is_success=T&notify_id=RqPnCoPT3K9%252Fvwbh3ItYxLVtOL2bs%252FKlZYqHLBGXQrmgcQ0NMMo4bHdP37IiSbNoZAP3&notify_time=2022-02-17+09%3A36%3A46&notify_type=trade_status_sync&out_trade_no=94D3E80B531B4585B1F18EE7B6E5525D&payment_type=1&seller_email=yee***%40yeezon.com&seller_id=2088801482754883&subject=Wallets%E5%85%85%E5%80%BC-%E8%AE%A2%E5%8D%95%E6%94%AF%E4%BB%98&total_fee=0.01&trade_no=2022021722001481661429724789&trade_status=TRADE_SUCCESS&sign=d22a6326bc3e2b383531d68d3f79e6d8&sign_type=MD5
-
+  
 end	
  
