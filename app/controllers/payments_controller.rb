@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
-   
+  
+  skip_before_action :required_login, only: [:notification, :notification_js]
+
   # 订单支付链接
   #
   # @param [string] trade_no 订单号
