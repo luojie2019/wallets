@@ -14,18 +14,40 @@ class UserRechargeBalance < ApplicationRecord
   # @param [string] remark 备注
   # @return [string] trade_no 订单号
   def self.add_income(userid, amount, remark)
-    user_recharge_balance = UserRechargeBalance.create({
-        :userid => userid,
-        :type_desc => UserRechargeBalance::IncomeTypeDesc,
-        :income => amount,
-        :remark => remark,
-        :serial_no => 'ser'
-      })
-      user = User.find_by(userid: userid)
-      # user.lock!
-      user.recharge_finance += amount
-      user.save
-      user_recharge_balance
-    end
+    user_recharge_balance = UserRechargeBalance.create(
+      :userid => userid,
+      :type_desc => UserRechargeBalance::IncomeTypeDesc,
+      :income => amount,
+      :remark => remark,
+      :serial_no => 'ser'
+    )
+    user = User.find_by(userid: userid)
+    # user.lock!
+    user.recharge_finance += amount
+    user.save
+    user_recharge_balance
+  end
+
+  # 添加支出
+  #
+  # @param [integer] userid 用户
+  # @param [decimal] amount 金额
+  # @param [string] remark 备注
+  # @return [string] trade_no 订单号
+  def self.add_expenditure(userid, amount, remark)
+    user_recharge_balance = UserRechargeBalance.create(
+      :userid => userid,
+      :type_desc => UserRechargeBalance::ExpenditureTypeDesc,
+      :income => amount,
+      :remark => remark,
+      :serial_no => 'ser'
+    )
+    user = User.find_by(userid: userid)
+    # user.lock!
+    user.recharge_finance -= amount
+    user.save
+    user_recharge_balance
+  end
+
 end	
  

@@ -17,6 +17,30 @@ class PaymentsController < ApplicationController
     redirect_to transaction.url
   end
 
+
+  # wallets支付链接
+  #
+  # @param [string] trade_no 订单号
+  # @return [html] 404/transaction.url
+  def pay_trade_by_wallets
+    transfer_trade = TransferTrade.find_by(params.permit(:trade_no))
+    return render_403 unless transfer_trade
+    return render_403 unless transfer_trade.status == TransferTrade::Status::INIT
+    payment = Payment.find_by(id: transfer_trade.payment_id)
+    return render_403 unless payment
+    if @current_user.recharge_finance > 0 && @current_user.recharge_finance >= transfer_trade.total_amount
+      UserRechargeBalance.transaction do
+        UserRechargeBalance.add_expenditure(transfer_trade.pay_userid, transfer_trade.total_amount, '钱包转账')
+        UserRechargeBalance.add_income(transfer_trade.recv_userid, transfer_trade.total_amount, '钱包转账')
+        transfer_trade.update(status: TransferTrade::Status::SUCCESS)
+      end
+      # web_hook_notify
+      return pay_success # "
+    else
+      return render_403 # "title: 购买失败 msg: 账户余额不足"
+    end
+  end
+
   # 支付完成-异步通知
   #
   # @param [string] https://opendocs.alipay.com/open/62/104743

@@ -14,6 +14,10 @@ zh_cn:
     is_exist: "%{name}已存在"
     invalid_request: "无效的请求"
     not_access: "无权操作"
+    params:
+      not_validate: "%{name}参数格式不正确"
+      not_null: "%{name}参数不能为空"
+      invalid: "无效的参数：%{name}"
     pay_type:
       not_exist: "支付类型不存在"
     user:
