@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post :recharge
       get :transfer
       post :transfer
+      get :recharge_list
     end
   end
 

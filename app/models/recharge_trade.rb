@@ -38,6 +38,25 @@ class RechargeTrade < ApplicationRecord
     end
     @trade.trade_no
   end
+
+
+  # 充值订单记录
+  #
+  # @param [datatime] created_at 创建时间
+  # @param [integer] userid 用户ID
+  # @param [string] fields 需要检索的字段
+  # @return [Hash] recharge_trades
+  def self.get_all(params)
+    recharge_trades = RechargeTrade.not_deleted
+    recharge_trades = recharge_trades.where(userid: params[:userid]) if params[:userid].present?
+    total_count = recharge_trades.count
+    if params[:page].to_i > 0
+      page, size = RechargeTrade::default_page(params)
+      recharge_trades = boms.limit(size).offset((page - 1) * size)
+    end
+    recharge_trades = recharge_trades.select(RechargeTrade::map_fields(params[:fields])) if params[:fields].present?
+    [recharge_trades, total_count]
+  end
 	
 end	
  

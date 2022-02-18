@@ -19,8 +19,8 @@ class ApplicationRecord < ActiveRecord::Base
     [page, size]
   end
 
-  def self.map_fileds(fileds)
-		fileds.split(",").map{|x| x.to_sym}
+  def self.map_fields(fields)
+		fields.split(",").map{|x| x.to_sym}
 	end
 
 end

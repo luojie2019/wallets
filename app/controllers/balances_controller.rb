@@ -30,6 +30,19 @@ class BalancesController < ApplicationController
     build_json_response(excute_block) 
   end
 
+  # 充值记录
+  #
+  # @param [datatime] created_at 创建时间
+  # @param [integer] userid 用户ID
+  # @param [string] fields 需要检索的字段
+  # @return [Hash] recharge_trades
+  def recharge_list
+    excute_block = lambda do |response|
+      response[:recharge_trades], response[:total_count] = RechargeTrade.get_all(params.merge(userid: @current_user.userid))
+    end
+    build_json_response(excute_block) 
+  end
+
   # 转账
   #
   # @param [integer] pay_userid 付款用户ID
